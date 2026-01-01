@@ -25,15 +25,24 @@ export function generatePaymentReference(): string {
 
 /**
  * Generate a unique SKU for product variants
- * Format: SKU-{PRODUCT_INITIAL}-{COLOR}-{SIZE}-{RANDOM}
+ * Format: SKU-{CATEGORY_INITIAL}-{COLOR}-{SIZE}-{RANDOM}
+ * Or for base product: SKU-{CATEGORY_INITIAL}-{RANDOM}
  */
+export function generateSKU(categoryName: string): string;
+export function generateSKU(categoryName: string, color: string, size: string): string;
 export function generateSKU(
-    productName: string,
-    color: string,
-    size: string,
+    categoryName: string,
+    color?: string,
+    size?: string,
 ): string {
-    const productInitial = productName.substring(0, 3).toUpperCase();
-    const colorCode = color.substring(0, 3).toUpperCase();
-    const random = Math.random().toString(36).substring(2, 5).toUpperCase();
-    return `SKU-${productInitial}-${colorCode}-${size.toUpperCase()}-${random}`;
+    const categoryInitial = categoryName.substring(0, 3).toUpperCase();
+    const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+
+    if (color && size) {
+        const colorCode = color.substring(0, 3).toUpperCase();
+        return `SKU-${categoryInitial}-${colorCode}-${size.toUpperCase()}-${random}`;
+    }
+
+    return `SKU-${categoryInitial}-${random}`;
 }
+

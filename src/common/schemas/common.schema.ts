@@ -47,3 +47,12 @@ export const slugParamSchema = z.object({
 });
 
 export type SlugParamDto = z.infer<typeof slugParamSchema>;
+
+/**
+ * Single slug validation schema
+ */
+export const slugSchema = z
+    .string()
+    .min(1, 'Slug is required')
+    .regex(/^[a-z0-9-]+$/, 'Invalid slug format');
+

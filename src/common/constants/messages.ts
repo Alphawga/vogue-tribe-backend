@@ -42,6 +42,7 @@ export const MESSAGES = {
         OUT_OF_STOCK: 'Sorry, this item is currently out of stock.',
         INSUFFICIENT_STOCK: (available: number) =>
             `Only ${available} item(s) available. Please reduce your quantity.`,
+        STOCK_UPDATED: 'Stock quantity has been updated.',
         IMAGE_UPLOADED: 'Product image has been uploaded.',
         IMAGE_DELETED: 'Product image has been removed.',
         VARIANT_ADDED: 'Product variant has been added.',

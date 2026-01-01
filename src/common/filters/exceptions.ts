@@ -202,3 +202,10 @@ export class ForbiddenException extends BusinessException {
         super(MESSAGES.GENERAL.FORBIDDEN, 'FORBIDDEN', HttpStatus.FORBIDDEN);
     }
 }
+
+export class BadRequestException extends BusinessException {
+    constructor(message: string = 'Bad request') {
+        super(message, 'BAD_REQUEST', HttpStatus.BAD_REQUEST);
+    }
+}
+

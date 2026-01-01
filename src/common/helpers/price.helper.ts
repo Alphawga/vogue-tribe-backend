@@ -56,3 +56,9 @@ export function calculatePercentageDiscount(
 export function roundPrice(amount: number): number {
     return Math.round(amount * 100) / 100;
 }
+
+/**
+ * Alias for formatPrice - formats price as Nigerian Naira
+ */
+export const formatNaira = formatPrice;
+
